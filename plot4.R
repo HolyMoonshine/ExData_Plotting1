@@ -11,6 +11,10 @@ plot4 <- function(){
     sqlData$date_time <- paste(sqlData$Date, sqlData$Time)
     sqlData$date_time <- strptime(sqlData$date_time, format = "%d/%m/%Y %H:%M:%S")
     
+    ## Export for PNG
+    png(file = "plot4.png", height = 480, width = 480)
+    
+    ##
     par(mfrow = c(2,2), mar = c(2,2,2,2), oma = c(2,2,2,2))
     
     ## 1,1

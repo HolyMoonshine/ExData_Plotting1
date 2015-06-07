@@ -10,11 +10,15 @@ plot2 <- function(){
     sqlData$date_time <- paste(sqlData$Date, sqlData$Time)
     sqlData$date_time <- strptime(sqlData$date_time, format = "%d/%m/%Y %H:%M:%S")
     
+    ## Export for PNG
+    png(file = "plot2.png", height = 480, width = 480)
+    
     ## set boundaries and draw output
     par(mar = c(5,4,3,2), oma = c(1,1,1,1))
     with(sqlData, plot(date_time, Global_active_power, 
                        ylab = "Global Active Power (kilowatts)", 
                        xlab = "", type = "l")
          )
+    dev.off()
     
 }
