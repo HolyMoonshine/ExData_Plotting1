@@ -21,9 +21,6 @@ plot3 <- function(){
     with(sqlData, points(date_time, Sub_metering_3, col = "blue", type = "l"))
     
     ## Legend creation
-    ## Legend seems to display oddly in RStudio, however if you call windows()
-    ## to open the graphics device or source and run in RGui, it outputs as
-    ## expected.
     legend("topright", lty = 1, col = c("black", "red", "blue"),
            names(sqlData[7:9])
            )

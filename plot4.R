@@ -33,7 +33,7 @@ plot4 <- function(){
     with(sqlData, points(date_time, Sub_metering_2, col = colours[2], type = "l"))
     with(sqlData, points(date_time, Sub_metering_3, col = colours[3], type = "l"))
     ## Legend 
-    legend("topright", lty = 1, col = c("black", "red", "blue"), 
+    legend("topright", lty = 1, col = c(colours[1:3]), 
            names(sqlData[7:9]),
            bty = "n")
     
