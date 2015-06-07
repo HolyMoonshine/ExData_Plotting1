@@ -15,22 +15,23 @@ plot4 <- function(){
     png(file = "plot4.png", height = 480, width = 480)
     
     ##
-    par(mfrow = c(2,2), mar = c(2,2,2,2), oma = c(2,2,2,2))
+    par(mfrow = c(2,2), mar = c(5,4,5,2), oma = c(1,1,0,0))
     
     ## 1,1
-    with(sqlData, hist(Global_active_power, col = "red",
-                       xlab = "Global Active Power (kilowatts)", 
-                       main = "Global Active Power")
+    with(sqlData, plot(date_time, Global_active_power,type = "l",
+                       xlab = "", 
+                       ylab = "Global Active Power")
     )
     
     ## 1,2
     with(sqlData, plot(date_time, Voltage, type = "l", xlab = "datetime" ))
     
     ## 2,1
+    colours <- c("black", "red", "blue")
     with(sqlData, plot(date_time, Sub_metering_1, xlab = "", 
-                       ylab = "Energy sub metering", type = "l"))
-    with(sqlData, points(date_time, Sub_metering_2, col = "red", type = "l"))
-    with(sqlData, points(date_time, Sub_metering_3, col = "blue", type = "l"))
+                       ylab = "Energy sub metering", col = colours[1],type = "l"))
+    with(sqlData, points(date_time, Sub_metering_2, col = colours[2], type = "l"))
+    with(sqlData, points(date_time, Sub_metering_3, col = colours[3], type = "l"))
     ## Legend 
     legend("topright", lty = 1, col = c("black", "red", "blue"), 
            names(sqlData[7:9]),
