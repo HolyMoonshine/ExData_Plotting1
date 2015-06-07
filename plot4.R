@@ -40,5 +40,5 @@ plot4 <- function(){
     with(sqlData, plot(date_time, Global_reactive_power, type = "l", 
                        xlab = "datetime")
     )
-    
+    dev.off()
 }
